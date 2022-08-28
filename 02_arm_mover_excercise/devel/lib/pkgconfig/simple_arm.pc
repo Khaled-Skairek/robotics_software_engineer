@@ -1,0 +1,8 @@
+prefix=/home/workspace/02_go_chase_it/arm_mover_excercise/devel
+
+Name: simple_arm
+Description: Description of simple_arm
+Version: 0.0.0
+Cflags: -I/home/workspace/02_go_chase_it/arm_mover_excercise/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
