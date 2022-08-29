@@ -39,27 +39,27 @@ private:
 unsigned ImageProcessor::find_col_of_first_white_pixel(const sensor_msgs::Image& img)
 {
 	constexpr auto white_pixel = 255;
-	const auto rows = img.step;
-	const auto cols = img.width;
-	ROS_INFO_STREAM ("img.step = " << rows <<  ", img.width = " << cols);
-	unsigned white_col{cols};
+	constexpr auto number_of_channels = 3U;
+	auto white_col{img.width};
+	const auto rows = img.height;
+	const auto row_length = img.step;
 	auto i = 0U;
-	while (i < rows * cols)
+	while (i < rows * row_length)
 	{
-		const auto pixel = img.data[i];
-		const auto pixel_is_white = pixel == white_pixel;
+		const auto r_channel = img.data[i];
+		const auto g_channel = img.data[i+1];
+		const auto b_channel = img.data[i+2];
+		const auto pixel_is_white = (r_channel == white_pixel) && (g_channel == white_pixel) && (b_channel == white_pixel);
 		if (pixel_is_white)
 		{
-			ROS_INFO_STREAM("i = " << i);
-			ROS_INFO_STREAM("cols = " << cols);
-			white_col = i % cols;
-			auto white_row = (i - white_col)/rows;
-			ROS_INFO_STREAM ("col = " << white_col <<  ", row = " << white_row);
+			white_col = (i / number_of_channels) % img.width;
+			ROS_INFO_STREAM ("col = " << white_col);
 			ROS_INFO_STREAM("White ball was found");
 			break;
 		}
-		++i;
+		i += number_of_channels;
 	}
+	ROS_INFO_STREAM ("i < rows * row_length ( " << i << " < " << rows * row_length << ")");
 	return white_col;
 }
 
