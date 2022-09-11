@@ -1,2 +1,0 @@
-RoboND-simple_arm
--DCATKIN_DEVEL_PREFIX=/home/workspace/02_go_chase_it/arm_mover_excercise/devel -DCMAKE_INSTALL_PREFIX=/home/workspace/02_go_chase_it/arm_mover_excercise/install -G Unix Makefiles

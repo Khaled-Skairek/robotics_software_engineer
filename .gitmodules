@@ -1,3 +1,6 @@
 [submodule "02_arm_mover_excercise/src/RoboND-simple_arm"]
 	path = 02_arm_mover_excercise/src/RoboND-simple_arm
 	url = git@github.com:Khaled-Skairek/RoboND-simple_arm.git
+[submodule "03_where_am_i/src/pgm_map_creator"]
+	path = 03_where_am_i/src/pgm_map_creator
+	url = https://github.com/udacity/pgm_map_creator.git
