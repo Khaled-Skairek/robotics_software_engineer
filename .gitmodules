@@ -7,3 +7,6 @@
 [submodule "04_map_my_world/src/teleop_twist_keyboard"]
 	path = 04_map_my_world/src/teleop_twist_keyboard
 	url = git@github.com:ros-teleop/teleop_twist_keyboard.git
+[submodule "05_home_service_robot/src/slam_gmapping"]
+	path = 05_home_service_robot/src/slam_gmapping
+	url = git@github.com:ros-perception/slam_gmapping.git
