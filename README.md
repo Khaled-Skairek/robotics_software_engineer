@@ -16,7 +16,8 @@ When the robot reaches the pickup location, it pauses for 5 sec to simulate pick
 The navigation stack receives the request goal from pick objects and plan path from the robot location to the goal using Dijkstra algorithm.<br/>
 If an obstacle (like a human) is found on the way to the goal, a local replanning takes place to avoid the obstacle.
 ### Add marker
-This package takes care of visualizing the objects on rviz. First it plots the virtual objet at the pick up location. Once the robot reaches the pick up location, it hides the object to indicate the robot has picked it up.<br/>
+This package takes care of visualizing the objects on rviz.<br/>
+First it plots the virtual objet at the pick up location. Once the robot reaches the pick up location, it hides the object to indicate the robot has picked it up.<br/>
 When the robot reach the drop off location, add marker plots the object at the drop off location.
 
 ## Initial world
