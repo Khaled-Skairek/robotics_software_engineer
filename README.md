@@ -5,7 +5,15 @@
 
 ## Project packages
 ### Mapping
-The map where the robot operates is built using slam technique. The implementation was used from <br/>
+The robot uses odometry information and sensor range observations to learn the map of the environment using efficient Rao-Blackwellized particle filer<br/>
+The algorithm carries out four main steps
+1. Generate a new set of particles using odometry motion model and previous old set of particles
+2. Calculate importance weight of each particle using sensor observations
+3. Resample particles in accordance with importance weights.
+4. Map estimation: calculate the corresponding map for each particle.
+The result map is then the most propable particle (highest importance weight).
+
+**Source:** <br/>
 https://github.com/ros-perception/slam_gmapping
 ### Localization
 Once the map is available, the robot needs to localize itself inside that map. For that purpose we used the amcl algorithm available as a standard ros package.
