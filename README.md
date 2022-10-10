@@ -25,7 +25,12 @@ Send goal locations to the robot. Once for the pickup location, and once for the
 When the robot reaches the pickup location, it pauses for 5 sec to simulate picking the virtual object up.
 ### Navigation
 The navigation stack receives the request goal from pick objects and plan path from the robot location to the goal using Dijkstra algorithm.<br/>
-If an obstacle (like a human) is found on the way to the goal, a local replanning takes place to avoid the obstacle.
+The real work is done by move_base node. The node uses 2 cost maps (local and global) to plan a motion path from pose to goal.<br/>
+global cost map takes as input the map and sensor observations. Then it sends its output to dijkestra algorithm solver to generate the shortest path.
+local cost map takes as input the sensor observation. Then it sends its output to the local planner.<br/>
+If an obstacle (like a human) is found on the way to the goal, a local replanning takes place to avoid the obstacle.<br/>
+<i>More information can be found here:</i><br/>
+https://navigation.ros.org/about/ros1_comparison.html
 ### Add marker
 This package takes care of visualizing the objects in rviz.<br/>
 Initially, the node plots the virtual object at the pick up location.<br/>
