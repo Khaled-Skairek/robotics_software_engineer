@@ -18,7 +18,7 @@ public:
 
 private:
   typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
-  MoveBaseClient action_client("move_base", true); // Spin a thread by default
+  MoveBaseClient action_client{"move_base", true}; // Spin a thread by default
 };
 
 bool RobotMover::sendRobotTo(const move_base_msgs::MoveBaseGoal &goal)
